@@ -5,3 +5,10 @@
 4. User below cred
 username-s@s.com
 pwd-ss
+
+Design Pattern:-Repository
+Authentication:-Basic Authentication
+ORM:-Dapper
+Database:-Sql Server
+Framework:-ASP.net Core
+UI:-React JS,react-strap
