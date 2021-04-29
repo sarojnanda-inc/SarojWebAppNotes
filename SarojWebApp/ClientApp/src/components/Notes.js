@@ -91,9 +91,9 @@ export const Notes = (props) => {
     const retrieveNotes = () => {
         let user = JSON.parse(sessionStorage.getItem("user"));
         const options = {
-            headers: { 'Authorization': btoa(user.userName + ':' + user.password) }
+            headers: { 'Authorization': btoa(user.username + ':' + user.password) }
         };
-        axios.get(`/home/GetAllNotes/${user.id}`).then(response => {
+        axios.get(`/home/GetAllNotes/${user.id}`, options).then(response => {
             setNotes(response.data)
         }
         ).catch(error => {

@@ -32,28 +32,31 @@ namespace SarojWebApp.Controllers
         }
         [Authorize]
         [HttpGet]
-        [Route("home/GetAllNotes/{id}")]
-        async Task<IActionResult> GetAllNotes(int userId)
+        [Route("GetAllNotes/{id}")]
+        public async Task<IActionResult> GetAllNotes(int id)
         {
-            return Ok(_userService.GetAllNotes(userId));
+            var notes = await _userService.GetAllNotes(id);
+            return Ok(notes);
         }
         [Authorize]
         [HttpPut]
-        async Task<IActionResult> UpdateNote(UserNote note)
+        public async Task<IActionResult> UpdateNote(UserNote note)
         {
-            return Ok(_userService.UpdateNote(note));
+            var result = await _userService.UpdateNote(note);
+            return Ok(result);
         }
         [Authorize]
         [HttpPost]
-        async Task<IActionResult> CreateNote(UserNote note)
+        public async Task<IActionResult> CreateNote(UserNote note)
         {
-            return Ok(_userService.CreateNote(note));
+            return Ok(await _userService.CreateNote(note));
         }
         [Authorize]
         [HttpDelete]
-        async Task<IActionResult> DeleteNote(int noteId)
+        public async Task<IActionResult> DeleteNote(int noteId)
         {
-            return Ok(_userService.DeleteNote(noteId));
+            await _userService.DeleteNote(noteId);
+            return Ok();
         }
     }
 }

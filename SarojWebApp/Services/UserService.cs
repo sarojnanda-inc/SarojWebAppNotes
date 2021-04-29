@@ -15,7 +15,7 @@ namespace SarojWebApp.Services
     {
         private readonly IConfiguration _config;
         private const string Connectionstring = "DefaultConnection";
-        private const string LoginQuery = "SELECT Id,UserName,FirstName,LastName FROM [User] WHERE UserName=@UserName AND Password=@Password";
+        private const string LoginQuery = "SELECT Id,UserName,FirstName,LastName,Password FROM [User] WHERE UserName=@UserName AND Password=@Password";
         private const string InsNote = @"INSERT INTO Notes (UserId,Title,Note)Values(@userId,@title,@note)";
         private const string UpdateNoteQ = @"UPDATE NOTE 
 SET
